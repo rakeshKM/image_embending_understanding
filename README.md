@@ -4,7 +4,7 @@ Machine learning projects can be extraordinarily complex involving data collecti
 
 This repo is an example machine learning project file structure that runs fully and attempt to avoid repetition in code while keeping individual files relatively short. This template/demo is based on the [Cookiecutter Data Science project](https://drivendata.github.io/cookiecutter-data-science/), which is a fantastic project, and deviates in a few ways that seem appropriate for machine learning projects specifically.
 
-Let's start by introducing the recommended file structure, then discuss each piece and why it's included. Below, files are shown first and folders after denoted with a "/" appended such as `folder/`.
+Let's start by introducing the recommended file structure, then discuss each piece and why it's included. Below, files are shown first and folders after denoted with a `/` appended such as `folder/`.
 
 ## Recommended file structure
 ```
@@ -70,13 +70,13 @@ In the makefile in this example, you'll notice that the `python -m` execution is
 > [!NOTE]
 > For Windows users, Make is more challenging to install. I recommend using Chocolately; you can [use this guide here](https://earthly.dev/blog/makefiles-on-windows/).
 
-## config.yaml
+## `config.yaml`
 
 The config file is your map to where your data live and any parameters for your model. As you move from one computer to another the names of data files could change, the directory structures for your data may change, and the config file is the map for your code that you update before running the program to keep up with any changes. In the example, the config file contains the link from which the data can be downloaded, the directories to store the raw, interim, and processed data, as well as where the various models, metrics, and visualizations from the project should be saved. You can also include key parameters for your code that you would otherwise need to input on the command line. Your config file should be updated any time you move between systems.
 
 In this template, the file format chosen is a YAML file \([brief tutorial here](https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started)\). You can then easily [read from the config file in python](https://python.land/data-processing/python-yaml) to use the contents of this file anywhere in your program removing the need for any hard coded references to files, directories, or parameters you may want to adjust.
 
-## requirements.txt
+## `requirements.txt`
 
 For any project to be reproducible, you'll need to provide a list of all the dependencies of the project. In the `requirements.txt` file you can list each dependency and use `conda` or `pip` to install them. It's recommended that you create a new environment for each project that you work on to ensure compatibility. Additionally, if any of your code is version-specific (meaning it requires version 1.25.7 or perhaps anything after or before some version), set the version as well by specifying the version after an equal sign, such as `numpy=1.25.0`. Note this creates a `requirements.txt` file that is compatible with conda/mamba but differs from the version used when installing with `pip` (that requires a double equal sign `==`).
 
